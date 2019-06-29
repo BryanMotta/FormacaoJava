@@ -1,0 +1,11 @@
+br\com\bitbank\configuracao\AppWebConfiguration.class
+br\com\bitbank\configuracao\JPAconfiguracao.class
+br\com\bitbank\infra\FileSaver.class
+br\com\bitbank\configuracao\ServletSpringMVC.class
+br\com\bitbank\controller\ClienteController.class
+br\com\bitbank\modelo\TipoGenero.class
+br\com\bitbank\dao\ClienteDAO.class
+br\com\bitbank\validacao\ClienteValidation.class
+br\com\bitbank\modelo\Cliente.class
+br\com\bitbank\modelo\Titular.class
+br\com\bitbank\controller\HomeController.class
