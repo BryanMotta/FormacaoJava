@@ -16,11 +16,11 @@ public class Cliente {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "titular_id")
 	private Titular titular;
 	
-	@OneToOne( cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "conta_id" )
 	private Conta conta;
 	

@@ -20,13 +20,33 @@ public class ClienteDAO {
 	public void gravar(Cliente cliente) {
 		manager.persist(cliente);
 	}
-
+	
+	public void atualizar(Cliente cliente) {
+		manager.merge(cliente);
+	}
+	
+	public void deposita(double deposita, int id) {
+		manager.createQuery("UPDATE Conta SET saldo = deposita where id = 1;",Cliente.class).setParameter("deposita", deposita).setParameter("id", id);
+		
+		/*
+		 * manager.createQuery("select distinct(p) from Produto p join fetch p.precos precos where p.id = :id", 
+     		Produto.class).setParameter("id", id)
+       		.getSingleResult();
+		 */
+		}
+	
+	public Cliente getProduto(Integer id) {
+		Cliente cliente = manager.find(Cliente.class, id);
+		return cliente;
+	}
 	public List<Cliente> listar() {
 		return manager.createQuery("select c from Cliente c", Cliente.class)
 				.getResultList();
 	}
-
+	
 	public Cliente find(int id) {
+		
 		return manager.find(Cliente.class, id);
+		
 	}
 }

@@ -10,18 +10,36 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<table>
+		<tr>
 
-	<form:form action="${s:mvcUrl('TC#deposita').arg(0,cliente.id).build() }" method="post"
-		modelAttribute="cliente">
-		<div>
-		<input type="number" name="conta.deposita" />		
-		<button type="submit">Depositar</button>
-		</div>
-	</form:form>
-	
-	
+			<form:form
+				action="${s:mvcUrl('TC#deposita').arg(0,cliente.id).build() }"
+				method="post" modelAttribute="cliente">
+				<div>
+					Nome:${cliente.titular.nome} Id:${cliente.conta.id} <input
+						type="number" name="deposita" />
+					<form:hidden path="id" value="${cliente.id}" />
+				</div>
+				<button type="submit">Depositar</button>
+			</form:form>
+		</tr>
+	</table>
 
+	<table>
+		<tr>
 
+			<form:form action="${s:mvcUrl('TC#saca').arg(0,cliente.id).build() }"
+				method="post" modelAttribute="cliente">
+				<div>
+					Nome:${cliente.titular.nome} Id:${cliente.conta.id} <input
+						type="number" name="saca" />
+					<form:hidden path="id" value="${cliente.id}" />
+				</div>
+				<button type="submit">Sacar</button>
+			</form:form>
+		</tr>
+	</table>
 
 </body>
 </html>

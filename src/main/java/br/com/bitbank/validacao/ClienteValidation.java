@@ -18,6 +18,7 @@ public class ClienteValidation implements Validator{
 	public void validate(Object target, Errors errors) {
 		ValidationUtils.rejectIfEmpty(errors, "titular.nome", "field.required");
 		ValidationUtils.rejectIfEmpty(errors, "titular.rg", "field.required");
+		ValidationUtils.rejectIfEmpty(errors, "titular.cpf", "field.required");
 	}
 	
 }

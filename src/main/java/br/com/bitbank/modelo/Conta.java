@@ -7,10 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Positive;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-@Entity
-
+@Entity @Transactional
+@Component
 public  class Conta {
 	
 	@Id@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,9 +37,10 @@ public  class Conta {
 	public Integer getNumero() {
 		return this.numero;
 	}
-	
+	@Bean
 	public void deposita(Double valor) {
 		this.saldo += valor;
+		
 	}
 
 	public boolean saca(Double valor) {

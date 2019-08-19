@@ -3,6 +3,7 @@ package br.com.bitbank.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -42,6 +43,7 @@ public class NovoClienteController {
 	}
 
 	@RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
+	@CacheEvict(value = "listaClientes", allEntries = true)
 	public ModelAndView gravar(MultipartFile fotoPerfil, @Valid Cliente cliente, BindingResult result,
 			RedirectAttributes redirectAttributes) {
 		System.out.println(fotoPerfil.getOriginalFilename());
