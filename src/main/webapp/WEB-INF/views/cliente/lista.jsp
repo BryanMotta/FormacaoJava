@@ -11,43 +11,36 @@
 		<article class="Section__StyledArticle-eh60l-1 iYjLqP">
 			<div class="style__SectionContent-sc-1c8u6wd-1 cdVsYN">
 				<div class="style__CopyContent-sc-1c8u6wd-4 jwFRlQ">
-
-					<table>
-						<tr>
-							<td>Nome</td>
-							<td>RG</td>
-							<td>CPF</td>
-						</tr>
-
-						<c:forEach items="${cliente}" var="cliente">
+					<div class="container">
+						<table class="table table-bordered table-striped table-hover">
 							<tr>
-								<td><a
-									href="${s:mvcUrl('CC#detalhe').arg(0,cliente.id).build() }">${cliente.titular.nome}</td>
-								</a>
-								<td>${cliente.titular.rg}</td>
-								<td>${cliente.titular.cpf}</td>
-								<td><a
-									href="${s:mvcUrl('TC#form').arg(0,cliente.id).build() }">Depositar
-										nessa conta</td>
-								</a>
+								<th>Nome</th>
+								<th>RG</th>
+								<th>CPF</th>
 							</tr>
-						</c:forEach>
 
-					</table>
-					<table>
-						<tr>
-							<td><a href="${s:mvcUrl('HC#index').build() }">Home</a>
-							<td>Seja nosso cliente <a
-								href="${s:mvcUrl('NCC#form').build() }">cadastre-se </a></td>
-						</tr>
-					</table>
-					<p>${sucesso}</p>
-					
+							<c:forEach items="${cliente}" var="cliente">
+								<tr>
+									<th><a
+										href="${s:mvcUrl('CC#detalhe').arg(0,cliente.id).build() }">${cliente.titular.nome}</th>
+									</a>
+									<th>${cliente.titular.rg}</th>
+									<th>${cliente.titular.cpf}</th>
+									<th><a
+										href="${s:mvcUrl('TC#form').arg(0,cliente.id).build() }">Depositar
+											nessa conta</th>
+									</a>
+								</tr>
+							</c:forEach>
+
+						</table>
+						<p>${sucesso}</p>
+
+					</div>
 				</div>
-			</div>
 		</article>
 	</section>
-
+</div>
 </div>
 
 <%@ include file="/WEB-INF/views/rodape.jsp"%>

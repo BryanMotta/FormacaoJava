@@ -1,41 +1,33 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Cliente:${cliente.titular.nome}</title>
-</head>
-<body>
+<%@ include file="/WEB-INF/views/cabecalho.jsp"%>
 
-	<table>
-		<tr>
-			<td>Nome:${cliente.titular.nome}</td>
-			<td>RG:${cliente.titular.rg}</td>
-			<td>CPF:${cliente.titular.cpf}</td>
-			<td>Data Nascimento:<fmt:formatDate pattern="dd/MM/yyyy" value="${cliente.titular.dataNascimento.time}"/></td>
-			<td>Genero:${cliente.titular.genero}</td>
-		</tr>
+<div class="style__LayoutContent-sc-10egk4p-0 jDdZjs">
+	<section
+		class="structure-section Section__StyledSection-eh60l-0 eIdIeT">
+		<article class="Section__StyledArticle-eh60l-1 iYjLqP">
+			<div class="style__SectionContent-sc-1c8u6wd-1 cdVsYN">
+				<div class="style__CopyContent-sc-1c8u6wd-4 jwFRlQ">
 
-	</table>
-	<table>
-		<tr>
-			<td><a href="${s:mvcUrl('HC#index').build() }">Home</a>
-			<td>Seja nosso cliente <a href="${s:mvcUrl('NCC#form').build() }">cadastre-se
-			</a></td>
-		</tr>
-	</table>
+					<table>
+						<tr>
+							<td>Nome:${cliente.titular.nome}</td>
+							<td>RG:${cliente.titular.rg}</td>
+							<td>CPF:${cliente.titular.cpf}</td>
+							<td>Data Nascimento:<fmt:formatDate pattern="dd/MM/yyyy" value="${cliente.titular.dataNascimento.time}" /></td>
+							<td>Genero:${cliente.titular.genero}</td>
+						</tr>
 
+					</table>
 
+				</div>
+			</div>
+		</article>
+	</section>
 
+</div>
 
-
-
-
-</body>
-</html>
+<%@ include file="/WEB-INF/views/rodape.jsp"%>
