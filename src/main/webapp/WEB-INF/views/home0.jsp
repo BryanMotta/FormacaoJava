@@ -1,21 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	
-	<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BitBank</title>
-</head>
 <body>
-	<h1>BitBank</h1>
-	<p> ${sucesso} </p>
-	<table>
-		<tr>
-			<td>Seja nosso cliente <a href="${s:mvcUrl('NCC#form').build() }">cadastre-se </a></td>
-			<td>Veja nossos clientes <a href="${s:mvcUrl('CC#lista').build() }">Lista de clientes </a></td>
-		</tr>
-	</table>
+	<div>
+
+		<table>
+			<p>${sucesso}</p>
+			<p>${falha}</p>
+			<tr>
+				<a href="${contextPath}/cliente/lista"> lista clientes </a>
+				<a href="${contextPath}/cliente/detalhe/${id}"> lista clientes </a>
+
+			</tr>
+
+		</table>
+
+	</div>
+
 </body>
 </html>
+
