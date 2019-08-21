@@ -1,11 +1,16 @@
 br\com\bitbank\configuracao\AppWebConfiguration.class
 br\com\bitbank\configuracao\JPAconfiguracao.class
+br\com\bitbank\configuracao\SpringSecurityFilterConfiguration.class
 br\com\bitbank\configuracao\ServletSpringMVC.class
 br\com\bitbank\controller\ClienteController.class
 br\com\bitbank\controller\TransacaoController.class
+br\com\bitbank\modelo\Usuario.class
 br\com\bitbank\dao\ClienteDAO.class
+br\com\bitbank\dao\UsuarioDAO.class
 br\com\bitbank\validacao\ClienteValidation.class
+br\com\bitbank\modelo\Role.class
 br\com\bitbank\controller\HomeController.class
+br\com\bitbank\controller\LoginController.class
 br\com\bitbank\infra\FileSaver.class
 br\com\bitbank\modelo\TipoGenero.class
 br\com\bitbank\modelo\Conta.class
@@ -13,3 +18,5 @@ br\com\bitbank\modelo\Cliente.class
 br\com\bitbank\modelo\DadosDeposito.class
 br\com\bitbank\modelo\Titular.class
 br\com\bitbank\controller\NovoClienteController.class
+br\com\bitbank\configuracao\SecurityConfiguration.class
+br\com\bitbank\configuracao\JsonViewResolver.class
