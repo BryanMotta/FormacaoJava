@@ -4,6 +4,8 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -47,6 +49,7 @@ public class NovoClienteController {
 	public ModelAndView gravar(MultipartFile fotoPerfil, @Valid Cliente cliente, BindingResult result,
 			RedirectAttributes redirectAttributes) {
 		System.out.println(fotoPerfil.getOriginalFilename());
+
 		if (result.hasErrors()) {
 			return form(cliente);
 		}
@@ -56,14 +59,22 @@ public class NovoClienteController {
 		clienteDAO.gravar(cliente);
 		redirectAttributes.addFlashAttribute("sucesso", "Cliente cadastrado com sucesso!");
 		System.out.println(cliente.getTitular().getFotoPerfilPath());
+		//enviaEmailCadastroEfetuado(cliente);
 		return new ModelAndView("redirect:/");
 	}
 
-	
-	
-	
-	
-	
-	
-	
+	//Sera implementado após configurar o gmail
+//	@Autowired
+//	private MailSender sender;
+//
+//	private void enviaEmailCadastroEfetuado(Cliente cliente) {
+//		SimpleMailMessage email = new SimpleMailMessage();
+//		email.setSubject("Conta criadda com sucesso!");
+//		email.setTo(cliente.getTitular().getEmail());
+//		email.setText("Sua conta no Bitbank foi criada.");
+//		email.setFrom("bryanmotta7@mail.com");
+//
+//		sender.send(email);
+//	}
+
 }

@@ -1,20 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="tags"%>
+
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
+<tags:pageTemplate titulo="Home ">
 	<table>
 		<tr>
 
+			<s:url value="/transacoes/deposita/${cliente.id}" var="deposita" />
 			<form:form
-				action="${s:mvcUrl('TC#deposita').arg(0,cliente.id).build() }"
+				action="${deposita}"
 				method="post" modelAttribute="cliente">
 				<div>
 					Nome:${cliente.titular.nome} Id:${cliente.conta.id} <input
@@ -28,8 +23,8 @@
 
 	<table>
 		<tr>
-
-			<form:form action="${s:mvcUrl('TC#saca').arg(0,cliente.id).build() }"
+			<s:url value="/transacoes/saca/${cliente.id}" var="saca"/>
+			<form:form action="${saca}"
 				method="post" modelAttribute="cliente">
 				<div>
 					Nome:${cliente.titular.nome} Id:${cliente.conta.id} <input
@@ -41,5 +36,4 @@
 		</tr>
 	</table>
 
-</body>
-</html>
+</tags:pageTemplate>
