@@ -11,9 +11,9 @@
 		<finalName>bitbank</finalName>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.3</version>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.6.1</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
@@ -76,7 +76,7 @@
 
 		<dependency>
 			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
+			<artifactId>spring-security-web</artifactId>
 			<version>5.1.6.RELEASE</version>
 		</dependency>
 
@@ -155,7 +155,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>6.0.0.Alpha2</version>
+			<version>5.4.4.Final</version>
 			<type>pom</type>
 		</dependency>
 
@@ -180,9 +180,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.hibernate</groupId>
+			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>6.1.0.Alpha4</version>
+			<version>6.0.17.Final</version>
 		</dependency>
 
 		<dependency>
