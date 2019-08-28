@@ -14,7 +14,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="${s:mvcUrl('HC#index').build()}">Home
+				<li class="nav-item active"><a class="nav-link" href="<s:url value="/"/>">Home
 						<span class="sr-only">(atual)</span>
 				</a></li>
 				<security:authorize access="hasRole('ROLE_ADMIN')">

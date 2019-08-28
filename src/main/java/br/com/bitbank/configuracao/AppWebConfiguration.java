@@ -26,7 +26,6 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -39,7 +38,7 @@ import br.com.bitbank.infra.FileSaver;
 @EnableWebMvc
 @ComponentScan(basePackageClasses = { HomeController.class, ClienteDAO.class, FileSaver.class })
 @EnableCaching
-public class AppWebConfiguration extends WebMvcConfigurerAdapter{
+public class AppWebConfiguration implements WebMvcConfigurer{
 
 	@Bean
 	public InternalResourceViewResolver internalResourceViewResolver() {
@@ -106,7 +105,7 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter{
 	    configurer.enable();
 	}
 	
-	//configurar o gmail para aceitar envio
+	//configurar o gamil para aceitar envio
 	@Bean
 	public MailSender mailSender() {
 
