@@ -20,7 +20,7 @@
 
 					<executions>
 						<execution>
-							<id>java11</id>
+							<id>java12</id>
 							<phase>none</phase>
 							<goals>
 								<goal>compile</goal>
@@ -31,7 +31,7 @@
 									<version>12</version>
 								</jdkToolchain>
 								<compileSourceRoots>
-									<compileSourceRoot>${C:\Program Files\Java\jdk-12.0.2}</compileSourceRoot>
+									<compileSourceRoot>"C:\Program Files\Java\jdk-12.0.2"</compileSourceRoot>
 								</compileSourceRoots>
 							</configuration>
 						</execution>
