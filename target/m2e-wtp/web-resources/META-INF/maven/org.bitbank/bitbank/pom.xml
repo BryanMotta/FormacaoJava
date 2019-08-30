@@ -31,13 +31,6 @@
 								<artifactItem>
 									<groupId>com.github.jsimone</groupId>
 									<artifactId>webapp-runner</artifactId>
-									<version>9.0.24.0</version>
-									<destFileName>webapp-runner.jar</destFileName>
-								</artifactItem>
-								
-								<artifactItem>
-									<groupId>com.github.jsimone</groupId>
-									<artifactId>webapp-runner</artifactId>
 									<version>9.0.24.1</version>
 									<destFileName>webapp-runner.jar</destFileName>
 								</artifactItem>
