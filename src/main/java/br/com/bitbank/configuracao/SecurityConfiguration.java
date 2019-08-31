@@ -32,6 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		
 	    http.authorizeRequests()
 	    .antMatchers("/resources/**").permitAll()
+	    .antMatchers("/url-magica-maluca-dsdhASDSDJJALDJIJEJ5618461646163484AJHAKHINSKFAHWid").permitAll()
 	    .antMatchers("/cliente/lista").hasRole("ADMIN")
 	    .antMatchers("/transacoes/**").authenticated()
 	    .antMatchers("/novo-cliente/cadastrar").permitAll()
