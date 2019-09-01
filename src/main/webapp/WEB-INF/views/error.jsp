@@ -10,7 +10,7 @@
 			<img src="https://media.giphy.com/media/mJy7e4Gip11pC/giphy.gif">
 		</div>
 		<div class="container">
-			<h1>Ih... de erro, mas não se preocupe ja vamos resolver o
+			<h1>Ih... parece que deu algum erro, mas não se preocupe ja iremos resolver o
 			problema. <h1> 
 			<tl>É verdade esse bilhete.</tl>
 		</div>
