@@ -2,9 +2,10 @@ package br.com.bitbank.modelo;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
-
+@Table
 @Entity
 public class Role implements GrantedAuthority {
 
