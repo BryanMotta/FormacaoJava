@@ -46,19 +46,19 @@ public class NovoClienteController {
 
 	@RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
 	@CacheEvict(value = "listaClientes", allEntries = true)
-	public ModelAndView gravar(MultipartFile fotoPerfil, @Valid Cliente cliente, BindingResult result,
+	public ModelAndView gravar( @Valid Cliente cliente, BindingResult result,
 			RedirectAttributes redirectAttributes) {
-		System.out.println(fotoPerfil.getOriginalFilename());
+//		System.out.println(fotoPerfil.getOriginalFilename());
 
 		if (result.hasErrors()) {
 			return form(cliente);
 		}
 
-		String path = fileSaver.write("arquivos-fotos-perfil", fotoPerfil);
-		cliente.getTitular().setFotoPerfilPath(path);
+//		String path = fileSaver.write("arquivos-fotos-perfil", fotoPerfil);
+//		cliente.getTitular().setFotoPerfilPath(path);
 		clienteDAO.gravar(cliente);
 		redirectAttributes.addFlashAttribute("sucesso", "Cliente cadastrado com sucesso!");
-		System.out.println(cliente.getTitular().getFotoPerfilPath());
+//		System.out.println(cliente.getTitular().getFotoPerfilPath());
 		//enviaEmailCadastroEfetuado(cliente);
 		return new ModelAndView("redirect:/");
 	}
