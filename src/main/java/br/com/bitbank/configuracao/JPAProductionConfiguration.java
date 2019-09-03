@@ -11,8 +11,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Profile("prod")
+@EnableTransactionManagement
 public class JPAProductionConfiguration {
 
     @Autowired
@@ -24,7 +26,7 @@ public class JPAProductionConfiguration {
         props.setProperty("hibernate.dialect", 
             "org.hibernate.dialect.PostgreSQLDialect");
         props.setProperty("hibernate.show_sql", "true");
-        props.setProperty("hibernate.hbm2ddl.auto", "update");
+        props.setProperty("hibernate.hbm2ddl.auto", "create");
         
         return props;
     }
