@@ -31,6 +31,7 @@ public class JPAProductionConfiguration {
         return props;
     }
 
+    
     @Bean       
     public DataSource dataSource() throws URISyntaxException {
         DriverManagerDataSource dataSource = 
