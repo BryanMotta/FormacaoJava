@@ -8,11 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 import org.springframework.transaction.annotation.Transactional;
 
-@Table
 @Entity @Transactional
 public class Cliente {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
