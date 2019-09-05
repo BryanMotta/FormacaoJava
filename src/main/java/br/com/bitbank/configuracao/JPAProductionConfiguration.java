@@ -27,6 +27,7 @@ public class JPAProductionConfiguration {
         props.setProperty("hibernate.show_sql", "true");
         props.setProperty("hibernate.hbm2ddl.auto", "create");
         
+        
         return props;
     }
 
