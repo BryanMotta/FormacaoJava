@@ -18,12 +18,12 @@
     <link rel="stylesheet" href="${cssPath}/bootstrap.min.css" />
 
     <!-- Estilos customizados para esse template -->
-    <link href="${cssPath}/csslogin/signin.css" rel="stylesheet">
+    <link href="${cssPath}/signin.css" rel="stylesheet">
   </head>
 
   <body class="text-center">
     <form:form servletRelativeAction="/login" method="POST" class="form-signin">
-      <img class="mb-4" src="${cssPath}/csslogin/bootstrap-solid.svg" alt="" width="72" height="72">
+      <img class="mb-4" src="${cssPath}/bootstrap-solid.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Faça login</h1>
       <label for="inputEmail" class="sr-only">Endereço de email</label>
       <input type="email" id="inputEmail" name="username" class="form-control" placeholder="Seu email" required autofocus>

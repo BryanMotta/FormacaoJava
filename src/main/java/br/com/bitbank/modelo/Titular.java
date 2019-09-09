@@ -26,7 +26,6 @@ public class Titular {
 	@DateTimeFormat
 	private Calendar dataNascimento;
 
-	private String email;
 	
 	private TipoGenero genero;
 	
@@ -90,14 +89,6 @@ public class Titular {
 
 	public void setFotoPerfilPath(String fotoPerfilPath) {
 		this.fotoPerfilPath = fotoPerfilPath;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	

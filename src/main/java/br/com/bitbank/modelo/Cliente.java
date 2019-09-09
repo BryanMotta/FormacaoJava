@@ -24,6 +24,9 @@ public class Cliente {
 	@JoinColumn(name = "conta_id" )
 	private Conta conta;
 	
+	@OneToOne(fetch = FetchType.EAGER, mappedBy = "cliente")
+	@JoinColumn(name = "usuario_id")
+	private Usuario usuario;
 	/**
 	 * Geters e Seters gereados automaticamento para aprendizagem, serão removidos ou editados futuramente
 	 */
@@ -50,6 +53,14 @@ public class Cliente {
 
 	public void setConta(Conta conta) {
 		this.conta = conta;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }

@@ -1,4 +1,5 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 
 
@@ -20,13 +21,29 @@
 				<security:authorize access="hasRole('ROLE_ADMIN')">
 				<li class="nav-item"><a class="nav-link" href="<s:url value="/cliente/lista"/>">Lista Clientes</a></li>
 				</security:authorize>
-				<li class="nav-item"><a class="nav-link disabled" href="#">Desativado</a>
+				<li class="nav-item"><a class="nav-link " href="#">BitConta</a>
 				
 			</ul>
-			<ul><li class="nav-item"><a class="nav-link btn btn-outline-success btn-lg" href="<s:url value="/login"/>">Login</a>
-				</li></ul>
-			<ul><li class="nav-item"><a class="nav-link btn btn-success btn-lg" href="<s:url value="/novo-cliente/cadastrar"/>">Quero ser BitBank</a>
-				</li></ul>
+			<security:authorize access="!isAuthenticated()">
+				<ul>
+					<li class="nav-item"><a
+						class="nav-link btn btn-outline-success btn-lg"
+						href="<s:url value="/login"/>">Login</a></li>
+				</ul>
+				<ul>
+					<li class="nav-item"><a
+						class="nav-link btn btn-success btn-lg"
+						href="<s:url value="/novo-cliente/cadastrar"/>">Quero ser BitBank</a></li>
+				</ul>
+			</security:authorize>
+			<security:authorize access="isAuthenticated()">
+			<ul>
+					<li class="nav-item"><a
+						class="nav-link btn btn-success "
+						href="<s:url value="/profile/"/>">
+						Profile: <security:authentication property="principal.username" /></a></li>
+				</ul>
+			</security:authorize>
 		</div>
 	</nav>
 </header>

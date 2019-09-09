@@ -26,7 +26,9 @@ public class ClienteDAO {
 	}
 	
 	public void deposita(double deposita, int id) {
-		manager.createQuery("UPDATE Conta SET saldo = deposita where id = 1;",Cliente.class).setParameter("deposita", deposita).setParameter("id", id);
+		manager.createQuery("UPDATE Conta SET saldo = deposita where id = 1;",Cliente.class)
+		.setParameter("deposita", deposita)
+		.setParameter("id", id);
 		
 		/*
 		 * manager.createQuery("select distinct(p) from Produto p join fetch p.precos precos where p.id = :id", 
@@ -48,5 +50,10 @@ public class ClienteDAO {
 		
 		return manager.find(Cliente.class, id);
 		
+	}
+
+	public Cliente findUsuario(String usuarioName) {
+		return manager.find(Cliente.class, usuarioName);
+		 
 	}
 }

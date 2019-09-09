@@ -21,7 +21,7 @@
             <div class="container">
               <div class="carousel-caption text-left">
                 <h1>Ser BitBank é ter uma vida financeira descomplicada.</h1>
-                <p>BitConta facil e rapido de se mexer.</p>
+                <p>BitConta fácil e rápido de se mexer.</p>
                 <p><a class="btn btn-lg btn-primary" href="<s:url value="/novo-cliente/cadastrar"/>" role="button">Quero ser BitBank</a></p>
               </div>
             </div>
