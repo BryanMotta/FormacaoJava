@@ -67,14 +67,15 @@ public class NovoClienteController {
 //			melhorar esse codigo*
 
 			usuario.setRoles(usuarioDAO.getRoleUser());
-			clienteDAO.gravar(cliente);
+			cliente.setUsuario(usuario);
 			usuarioDAO.gravar(usuario);
+			clienteDAO.gravar(cliente);
 			redirectAttributes.addFlashAttribute("sucesso", "Cliente cadastrado com sucesso!");
 			
 //			Sera implementado após configurar o gmail
 //			enviaEmailCadastroEfetuado(cliente);
 			
-			return new ModelAndView("redirect:/");
+			return new ModelAndView("redirect:/bitconta/detalhe");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return form(cliente, usuario);

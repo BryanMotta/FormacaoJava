@@ -8,8 +8,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -23,13 +22,10 @@ public class Usuario implements UserDetails {
     private String email;
     @NotBlank
     private String senha;
-
-	@OneToOne
-    private Cliente cliente;
     
     private String nome;
 
-    @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
+    @ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
     private List<Role> roles = new ArrayList<>();
 
     public String getEmail() {
@@ -79,13 +75,6 @@ public class Usuario implements UserDetails {
         return this.email;
     }
 
-    public Cliente getCiente() {
-		return cliente;
-	}
-
-	public void setCiente(Cliente ciente) {
-		this.cliente = ciente;
-	}
 
 	@Override
     public boolean isAccountNonExpired() {

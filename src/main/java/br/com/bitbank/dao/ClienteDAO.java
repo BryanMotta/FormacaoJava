@@ -8,6 +8,9 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mysql.cj.Session;
+import com.mysql.cj.xdevapi.SessionFactory;
+
 import br.com.bitbank.modelo.Cliente;
 
 @Repository
@@ -52,8 +55,15 @@ public class ClienteDAO {
 		
 	}
 
-	public Cliente findUsuario(String usuarioName) {
-		return manager.find(Cliente.class, usuarioName);
+	public Cliente findUsuario(String usuarioNome) {
+		return manager.createQuery("select c from Cliente c where usuario_id = :usuarioNome", Cliente.class)
+				.setParameter("usuarioNome", usuarioNome)
+				.getSingleResult();
 		 
+	}
+
+	public void deletarCliente(String usuarioNome) {
+		manager.createQuery("delete from Cliente c where usuario_id = :usuarioNome")
+		.setParameter("usuarioNome", usuarioNome);
 	}
 }

@@ -21,7 +21,7 @@
 				<security:authorize access="hasRole('ROLE_ADMIN')">
 				<li class="nav-item"><a class="nav-link" href="<s:url value="/cliente/lista"/>">Lista Clientes</a></li>
 				</security:authorize>
-				<li class="nav-item"><a class="nav-link " href="#">BitConta</a>
+				<li class="nav-item"><a class="nav-link " href="/bitconta">BitConta</a>
 				
 			</ul>
 			<security:authorize access="!isAuthenticated()">

@@ -24,7 +24,7 @@ public class Cliente {
 	@JoinColumn(name = "conta_id" )
 	private Conta conta;
 	
-	@OneToOne(fetch = FetchType.EAGER, mappedBy = "cliente")
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 	/**

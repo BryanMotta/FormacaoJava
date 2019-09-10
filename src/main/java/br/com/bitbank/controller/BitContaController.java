@@ -4,13 +4,13 @@ import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.bitbank.dao.ClienteDAO;
 import br.com.bitbank.modelo.Cliente;
+import br.com.bitbank.modelo.TipoGenero;
 
 @Controller
 @RequestMapping("/bitconta")
@@ -22,19 +22,18 @@ public class BitContaController {
 	@RequestMapping(value = "")
 	public ModelAndView index(Principal principal) {
 		ModelAndView modelAndView = new ModelAndView("/bitconta/detalhe");
-		System.out.println(principal.getName());
-		System.out.println(clienteDAO.findUsuario(principal.getName()));
 		Cliente cliente = clienteDAO.findUsuario(principal.getName());
 		modelAndView.addObject("cliente", cliente);
 		return modelAndView;
 		
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/atualizar/{id}")
-	public ModelAndView atualizarForm(@PathVariable("id") int id) {
-		ModelAndView modelAndView = new ModelAndView("bitconta/atualizarform");
-		Cliente cliente = clienteDAO.find(id);
+	@RequestMapping(method = RequestMethod.GET, value = "/atualizar")
+	public ModelAndView atualizarForm(Principal principal) {
+		ModelAndView modelAndView = new ModelAndView("bitconta/formatualizacao");
+		Cliente cliente = clienteDAO.findUsuario(principal.getName());
 		modelAndView.addObject("cliente", cliente);
+		modelAndView.addObject("genero", TipoGenero.values());
 
 		return modelAndView;
 	}
@@ -47,5 +46,12 @@ public class BitContaController {
 		return modelAndView;
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/deletar")
+	public ModelAndView deletarConta(Principal principal) {
+		ModelAndView modelAndView = new ModelAndView("home");
+		clienteDAO.deletarCliente(principal.getName());
+		System.out.println("deletado");
+		return modelAndView;
+	}
 	
 }

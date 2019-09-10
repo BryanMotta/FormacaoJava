@@ -10,14 +10,14 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 
-					<s:url value="/novo-cliente/cadastrar" var="cadastrar" />
-					<form:form servletRelativeAction="${cadastrar }" method="post"
+					<s:url value="/bitconta/atualizar" var="cadastrar" />
+					<form:form servletRelativeAction="${atualizar}" method="post"
 						modelAttribute="cliente" enctype="multipart/form-data">
 
 						<div class="form-group">
-							<label>Nome Completo</label>
+							<label >Nome Completo</label>
 							<form:input path="titular.nome" class="form-control"
-								placeholder="Sucupira Silva " />
+								placeholder="Sucupira Silva "  />
 							<form:errors path="titular.nome" />
 						</div>
 						<div class="row">
@@ -59,24 +59,9 @@
 							</div>
 						</div>
 
-						<form:form servletRelativeAction="${cadastrar }" method="post"
-							modelAttribute="usuario">
-							<div>
-								<label>Email</label>
-								<form:input path="email" class="form-control"
-									placeholder="seunome@exemplo.com" />
-								<form:errors path="email" />
-							</div>
-
-							<div class="form-group">
-
-								<label>Senha</label>
-								<form:input path="senha" class="form-control"
-									placeholder="HG101tiOasP" />
-								<form:errors path="senha" />
-							</div>
-							<button type="submit">Cadastrar</button>
-						</form:form>
+						<div class="col-md-12 text-center">
+							<button type="submit" class="btn btn-success">Atualizar</button>
+						</div>
 					</form:form>
 				</div>
 			</div>
