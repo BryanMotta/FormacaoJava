@@ -30,51 +30,51 @@ public class JPAconfiguracao {
 		return factoryBean;
 	}
 
-	@Bean
-	@Profile("dev")
-	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setUsername("root");
-		dataSource.setPassword("0000");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/bitbank?useTimezone=true&serverTimezone=UTC");
-		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-
-		return dataSource;
-	}
-
-	@Bean
-	@Profile("dev")
-	private Properties additionalProperties() {
-        Properties props = new Properties();
-        props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
-		props.setProperty("hibernate.show_sql", "true");
-		props.setProperty("hibernate.hbm2ddl.auto", "update");
-
-        return props;
-    }
-	
 //	@Bean
 //	@Profile("dev")
 //	public DataSource dataSource() {
 //		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//		dataSource.setUsername("postgres");
+//		dataSource.setUsername("root");
 //		dataSource.setPassword("0000");
-//		dataSource.setUrl("jdbc:postgresql://localhost:5432/bitbank");
-//		dataSource.setDriverClassName("org.postgresql.Driver");
+//		dataSource.setUrl("jdbc:mysql://localhost:3306/bitbank?useTimezone=true&serverTimezone=UTC");
+//		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 //
 //		return dataSource;
 //	}
-//	
+//
 //	@Bean
 //	@Profile("dev")
 //	private Properties additionalProperties() {
 //        Properties props = new Properties();
-//        props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-//        props.setProperty("hibernate.show_sql", "true");
-//        props.setProperty("hibernate.hbm2ddl.auto", "update");
-//        
+//        props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+//		props.setProperty("hibernate.show_sql", "true");
+//		props.setProperty("hibernate.hbm2ddl.auto", "update");
+//
 //        return props;
 //    }
+	
+	@Bean
+	@Profile("dev")
+	public DataSource dataSource() {
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setUsername("postgres");
+		dataSource.setPassword("0000");
+		dataSource.setUrl("jdbc:postgresql://localhost:5432/bitbank");
+		dataSource.setDriverClassName("org.postgresql.Driver");
+
+		return dataSource;
+	}
+	
+	@Bean
+	@Profile("dev")
+	private Properties additionalProperties() {
+        Properties props = new Properties();
+        props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+        props.setProperty("hibernate.show_sql", "true");
+        props.setProperty("hibernate.hbm2ddl.auto", "update");
+        
+        return props;
+    }
 	
 	@Bean
 	public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
