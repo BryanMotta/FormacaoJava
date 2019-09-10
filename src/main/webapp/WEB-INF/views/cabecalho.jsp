@@ -3,7 +3,6 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 
 
-<s:url value="/"/>
 
 <header>
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
