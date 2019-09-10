@@ -28,13 +28,20 @@ public class HomeController{
     @ResponseBody
     @RequestMapping("/url-magica-maluca-dsdhASDSDJJALDJIJEJ5618461646163484AJHAKHINSKFAHWid")
     public String urlMagicaMaluca() {
-        Usuario usuario = new Usuario(); 
-        usuario.setNome("Admin");
-        usuario.setEmail("admin@bitbank.com.br");
-        usuario.setSenha("$2a$10$lt7pS7Kxxe5JfP.vjLNSyOXP11eHgh7RoPxo5fvvbMCZkCUss2DGu");
-        usuario.setRoles(Arrays.asList(new Role("ROLE_ADMIN")));
+        Usuario admin = new Usuario(); 
+        admin.setNome("Admin");
+        admin.setEmail("admin@bitbank.com.br");
+        admin.setSenha("$2a$10$lt7pS7Kxxe5JfP.vjLNSyOXP11eHgh7RoPxo5fvvbMCZkCUss2DGu");
+        admin.setRoles(Arrays.asList(new Role("ROLE_ADMIN")));
 
-        usuarioDao.gravar(usuario);
+        Usuario user = new Usuario(); 
+        user.setNome("User");
+        user.setEmail("user@bitbank.com.br");
+        user.setSenha("$2a$10$lt7pS7Kxxe5JfP.vjLNSyOXP11eHgh7RoPxo5fvvbMCZkCUss2DGu");
+        user.setRoles(Arrays.asList(new Role("ROLE_USER")));
+        
+        usuarioDao.gravar(admin);
+        usuarioDao.gravar(user);
 
         return "Url Mágica executada";
     }
