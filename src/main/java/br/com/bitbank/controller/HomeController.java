@@ -34,14 +34,7 @@ public class HomeController{
         admin.setSenha("$2a$10$lt7pS7Kxxe5JfP.vjLNSyOXP11eHgh7RoPxo5fvvbMCZkCUss2DGu");
         admin.setRoles(Arrays.asList(new Role("ROLE_ADMIN")));
 
-        Usuario user = new Usuario(); 
-        user.setNome("User");
-        user.setEmail("user@bitbank.com.br");
-        user.setSenha("$2a$10$lt7pS7Kxxe5JfP.vjLNSyOXP11eHgh7RoPxo5fvvbMCZkCUss2DGu");
-        user.setRoles(Arrays.asList(new Role("ROLE_USER")));
-        
         usuarioDao.gravar(admin);
-        usuarioDao.gravar(user);
 
         return "Url Mágica executada";
     }
