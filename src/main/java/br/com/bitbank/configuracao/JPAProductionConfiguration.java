@@ -60,7 +60,7 @@ public class JPAProductionConfiguration {
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		
 		URI dbUrl = new URI(environment.getProperty("JAWSDB_URL"));
-		dataSource.setUrl("jdbc:mysql://" + dbUrl.getHost() + ":" + dbUrl.getPort() + dbUrl.getPath());
+		dataSource.setUrl("jdbc:mysql2://" + dbUrl.getHost() + ":" + dbUrl.getPort() + dbUrl.getPath());
 		dataSource.setUsername(dbUrl.getUserInfo().split(":")[0]);
 		dataSource.setPassword(dbUrl.getUserInfo().split(":")[1]);
 		
