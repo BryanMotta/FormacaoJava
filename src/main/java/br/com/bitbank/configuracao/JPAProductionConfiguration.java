@@ -34,9 +34,9 @@ public class JPAProductionConfiguration {
 	@Bean
 	private Properties additionalProperties() {
 		Properties props = new Properties();
-		props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+		props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
 		props.setProperty("hibernate.show_sql", "true");
-		props.setProperty("hibernate.hbm2ddl.auto", "update");
+		props.setProperty("hibernate.hbm2ddl.auto", "create");
 
 		return props;
 	}
@@ -67,17 +67,6 @@ public class JPAProductionConfiguration {
 		return dataSource;
 	}
 
-//	@Bean
-//	@Profile("dev")
-//	public DataSource dataSource() {
-//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//		dataSource.setUsername("root");
-//		dataSource.setPassword("0000");
-//		dataSource.setUrl("jdbc:mysql://localhost:3306/bitbank?useTimezone=true&serverTimezone=UTC");
-//		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-//
-//		return dataSource;
-//	}
-//
+
 
 }
