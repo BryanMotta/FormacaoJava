@@ -17,32 +17,67 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class JPAProductionConfiguration {
 
-    @Autowired
-    private Environment environment;
+	@Autowired
+	private Environment environment;
 
-    @Bean
-    public Properties additionalProperties() {
-        Properties props = new Properties();
-        props.setProperty("hibernate.dialect", "org.hibernate.dialect.ProgressDialect");
-        props.setProperty("hibernate.show_sql", "true");
-        props.setProperty("hibernate.hbm2ddl.auto", "create"); 
-        
-        
-        return props;
-    }
+//    @Bean
+//    public Properties additionalProperties() {
+//        Properties props = new Properties();
+//        props.setProperty("hibernate.dialect", "org.hibernate.dialect.ProgressDialect");
+//        props.setProperty("hibernate.show_sql", "true");
+//        props.setProperty("hibernate.hbm2ddl.auto", "create"); 
+//        
+//        
+//        return props;
+//    }
 
-    @Bean       
-    public DataSource dataSource() throws URISyntaxException {
-        DriverManagerDataSource dataSource = 
-            new DriverManagerDataSource();
-        dataSource.setDriverClassName("org.postgresql.Driver");
+	@Bean
+	private Properties additionalProperties() {
+		Properties props = new Properties();
+		props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+		props.setProperty("hibernate.show_sql", "true");
+		props.setProperty("hibernate.hbm2ddl.auto", "update");
 
-        URI dbUrl = new URI(environment.getProperty("DATABASE_URL"));
-        dataSource.setUrl("jdbc:postgresql://" + dbUrl.getHost() + 
-            ":" + dbUrl.getPort() + dbUrl.getPath());
-        dataSource.setUsername(dbUrl.getUserInfo().split(":")[0]);
-        dataSource.setPassword(dbUrl.getUserInfo().split(":")[1]);
+		return props;
+	}
 
-        return dataSource;
-    }    
+//	@Bean
+//	public DataSource dataSource() throws URISyntaxException {
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		dataSource.setDriverClassName("org.postgresql.Driver");
+//
+//		URI dbUrl = new URI(environment.getProperty("DATABASE_URL"));
+//		dataSource.setUrl("jdbc:postgresql://" + dbUrl.getHost() + ":" + dbUrl.getPort() + dbUrl.getPath());
+//		dataSource.setUsername(dbUrl.getUserInfo().split(":")[0]);
+//		dataSource.setPassword(dbUrl.getUserInfo().split(":")[1]);
+//
+//		return dataSource;
+//	}
+	
+	@Bean
+	public DataSource dataSource() throws URISyntaxException {
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		
+		URI dbUrl = new URI(environment.getProperty("DATABASE_URL"));
+		dataSource.setUrl("jdbc:mysql://" + dbUrl.getHost() + ":" + dbUrl.getPort() + dbUrl.getPath());
+		dataSource.setUsername(dbUrl.getUserInfo().split(":")[0]);
+		dataSource.setPassword(dbUrl.getUserInfo().split(":")[1]);
+		
+		return dataSource;
+	}
+
+//	@Bean
+//	@Profile("dev")
+//	public DataSource dataSource() {
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		dataSource.setUsername("root");
+//		dataSource.setPassword("0000");
+//		dataSource.setUrl("jdbc:mysql://localhost:3306/bitbank?useTimezone=true&serverTimezone=UTC");
+//		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+//
+//		return dataSource;
+//	}
+//
+
 }
