@@ -1,5 +1,7 @@
 package br.com.bitbank.modelo;
 
+import java.util.Calendar;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,9 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Version;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.transaction.annotation.Transactional;
 
 @Entity @Transactional @DynamicUpdate(true) @DynamicInsert(true)
@@ -29,6 +33,10 @@ public class Cliente {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
+	
+	@Version @DateTimeFormat
+	private Calendar OptimisticLock;
+	
 	/**
 	 * Geters e Seters gereados automaticamento para aprendizagem, serão removidos ou editados futuramente
 	 */
@@ -63,6 +71,14 @@ public class Cliente {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public Calendar getOptimisticLock() {
+		return OptimisticLock;
+	}
+
+	public void setOptimisticLock(Calendar optimisticLock) {
+		OptimisticLock = optimisticLock;
 	}
 
 }
