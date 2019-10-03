@@ -42,6 +42,5 @@ public class UsuarioDAO implements UserDetailsService {
     		.createQuery("select nome from Role nome where nome= 'ROLE_USER'", Role.class)
     		.getResultList();
 		return role;
-    	
     }
 }

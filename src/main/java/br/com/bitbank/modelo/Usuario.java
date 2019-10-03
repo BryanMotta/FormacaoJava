@@ -25,7 +25,7 @@ public class Usuario implements UserDetails {
     
     private String nome;
 
-    @ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+    @ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
     private List<Role> roles = new ArrayList<>();
 
     public String getEmail() {

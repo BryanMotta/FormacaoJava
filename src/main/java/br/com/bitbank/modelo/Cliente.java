@@ -9,9 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.transaction.annotation.Transactional;
 
-@Entity @Transactional
+@Entity @Transactional @DynamicUpdate(true) @DynamicInsert(true)
 public class Cliente {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;

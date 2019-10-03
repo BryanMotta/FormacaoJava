@@ -49,6 +49,7 @@ public class TransacaoController {
 				cliente.getConta().deposita(Double.parseDouble(request.getParameter("deposita")));
 				clienteDAO.atualizar(cliente);
 				redirectAttributes.addFlashAttribute("sucesso", response);
+				
 				return new ModelAndView("redirect:/");
 
 			} catch (Exception e) {

@@ -1,5 +1,6 @@
 package br.com.bitbank.configuracao;
 
+import java.beans.PropertyVetoException;
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
@@ -14,6 +15,8 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
 @EnableTransactionManagement
 public class JPAconfiguracao {
 
@@ -26,6 +29,7 @@ public class JPAconfiguracao {
 		factoryBean.setJpaVendorAdapter(vendorAdapter);
 		factoryBean.setDataSource(dataSource);
 		factoryBean.setJpaProperties(additionalProperties());
+		
 
 		return factoryBean;
 	}
@@ -55,14 +59,20 @@ public class JPAconfiguracao {
 	
 	@Bean
 	@Profile("dev")
-	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setUsername("postgres");
-		dataSource.setPassword("0000");
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/bitbank");
-		dataSource.setDriverClassName("org.postgresql.Driver");
+	public DataSource dataSource() throws PropertyVetoException {
+			ComboPooledDataSource dataSource = new ComboPooledDataSource();
 
-		return dataSource;
+		    dataSource.setDriverClass("org.postgresql.Driver");    
+		    dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/bitbank");
+		    dataSource.setUser("postgres");
+		    dataSource.setPassword("0000");
+
+		    dataSource.setMinPoolSize(3);
+		    dataSource.setMaxPoolSize(5);
+
+		    dataSource.setIdleConnectionTestPeriod(1);
+
+			return dataSource;
 	}
 	
 	@Bean

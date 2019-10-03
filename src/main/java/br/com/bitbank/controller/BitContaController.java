@@ -48,9 +48,9 @@ public class BitContaController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/deletar")
 	public ModelAndView deletarConta(Principal principal) {
-		ModelAndView modelAndView = new ModelAndView("home");
+		ModelAndView modelAndView = new ModelAndView("redirect:/logout");
 		clienteDAO.deletarCliente(principal.getName());
-		System.out.println("deletado");
+		System.out.println(principal.getName() + " deletado");
 		return modelAndView;
 	}
 	
