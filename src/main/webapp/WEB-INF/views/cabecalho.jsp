@@ -39,7 +39,7 @@
 			<ul>
 					<li class="nav-item"><a
 						class="nav-link btn btn-success "
-						href="<s:url value="/profile/"/>">
+						href="<s:url value="/bitconta"/>">
 						Profile: <security:authentication property="principal.username" /></a></li>
 				</ul>
 			</security:authorize>

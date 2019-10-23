@@ -36,10 +36,9 @@ public class TransacaoController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/deposita/{id}")
-	// preciso entender melhor a class Callable
+	//entender melhor a class Callable
 	public Callable<ModelAndView> deposita(@PathVariable("id") int id, WebRequest request,
 			RedirectAttributes redirectAttributes) {
-		// junto com a utilização dessa classe anonima
 		return () -> {
 			try {
 				String uri = "http://book-payment.herokuapp.com/payment";

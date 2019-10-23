@@ -40,7 +40,7 @@ public class BitContaController {
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/atualizar")
 	public ModelAndView atualizar(Cliente cliente) {
-		ModelAndView modelAndView = new ModelAndView("redirect:/bitconta/detalhe/"+ cliente.getId());
+		ModelAndView modelAndView = new ModelAndView("redirect:/bitconta/"+ cliente.getId());
 		clienteDAO.atualizar(cliente);
 		modelAndView.addObject("cliente", cliente);
 		return modelAndView;

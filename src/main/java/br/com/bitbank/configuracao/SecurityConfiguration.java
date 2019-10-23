@@ -41,7 +41,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	    .anyRequest().authenticated()
 	    .and().formLogin().loginPage("/login")
         .defaultSuccessUrl("/bitconta").permitAll()
-    .and().logout()
+        .and().logout()
         .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
             .permitAll().logoutSuccessUrl("/login"); 
 	}
