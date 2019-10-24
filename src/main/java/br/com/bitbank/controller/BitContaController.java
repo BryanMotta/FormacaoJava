@@ -19,7 +19,7 @@ public class BitContaController {
 	@Autowired
 	private ClienteDAO clienteDAO;
 	
-	@RequestMapping(value = "")
+	@RequestMapping(value = "/")
 	public ModelAndView index(Principal principal) {
 		ModelAndView modelAndView = new ModelAndView("/bitconta/detalhe");
 		Cliente cliente = clienteDAO.findUsuario(principal.getName());
